@@ -231,20 +231,15 @@ def getProps(String propName) {
     return getConfigValue(propName, "")
 }
 
-def localPropsCache
-
 def getLocalProps() {
-    if (localPropsCache != null) {
-        return localPropsCache
-    }
-    localPropsCache = new Properties()
+    def localProps = new Properties()
     def propsFile = rootProject.file('local.properties')
     if (propsFile.exists()) {
         propsFile.withInputStream { stream ->
-            localPropsCache.load(stream)
+            localProps.load(stream)
         }
     }
-    return localPropsCache
+    return localProps
 }
 
 def getConfigValue(String propName, String defaultValue = "") {
