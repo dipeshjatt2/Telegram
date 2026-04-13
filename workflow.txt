@@ -71,7 +71,6 @@ jobs:
         run: |
           printf 'sdk.dir=%s\n' "$ANDROID_HOME" > local.properties
           printf '%s' "$SIGNING_KEYSTORE_BASE64" | base64 -d > TMessagesProj/config/release.keystore
-          printf '%s' "$GOOGLE_SERVICES_JSON_BASE64" | base64 -d > TMessagesProj/google-services.json
           printf '%s' "$GOOGLE_SERVICES_JSON_BASE64" | base64 -d > TMessagesProj_App/google-services.json
 
       - name: Build release APK
