@@ -33,6 +33,8 @@ android {
     buildToolsVersion '35.0.0'
 
     defaultConfig.applicationId = APP_PACKAGE
+    def mapsApiKey = project.hasProperty("JAATGRAM_MAPS_API_KEY") ? String.valueOf(project.property("JAATGRAM_MAPS_API_KEY")) : ""
+    defaultConfig.manifestPlaceholders = [MAPS_API_KEY: mapsApiKey]
 
     sourceSets.main.jniLibs.srcDirs = ['../TMessagesProj/jni/']
 
